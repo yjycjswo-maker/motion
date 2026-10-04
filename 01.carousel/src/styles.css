@@ -1,0 +1,85 @@
+/* ---------- 토큰 (원본 Tailwind 설정에서 확인된 값) ---------- */
+/* 다크 테마(원본). 라이트로 바꾸려면 color-1 ↔ color-2 를 바꾸고
+   color-5 와 오버레이 그라디언트의 흑백을 반대로 두면 됩니다. */
+:root {
+  --color-1: #ffffff; /* 글자 */
+  --color-2: #000000; /* 배경 */
+  --color-3: #ddfa42; /* 포인트 */
+  --color-5: hsla(0, 0%, 100%, 0.1); /* 반투명 버튼 배경 */
+}
+
+/* 원본과 같은 유동 rem. 뷰포트 폭에 따라 1rem ≈ 8~10px */
+html {
+  font-size: calc(-0.175rem + 0.6667vw);
+}
+@media screen and (max-width: 1620px) {
+  html {
+    font-size: calc(0.4437rem + 0.1174vw);
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: calc(0.4998rem + 0.2608vw);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overscroll-behavior: none;
+}
+
+body {
+  background: var(--color-2);
+  color: var(--color-1);
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'Apple SD Gothic Neo', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.Overlay {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  z-index: 1990;
+  pointer-events: none;
+}
+.Overlay--top {
+  top: 0;
+  background-image: linear-gradient(0deg, rgba(1, 1, 1, 0) 15.2%, rgba(1, 1, 1, 0.5) 51%, rgba(0, 0, 0, 0.85) 84.8%);
+}
+.Overlay--bottom {
+  bottom: 0;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 9.5%, rgba(1, 1, 1, 0.5) 51%, rgba(1, 1, 1, 0) 84.8%);
+}
+
+.Stage {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  background: var(--color-2);
+}
+.Scene {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  touch-action: none;
+}
